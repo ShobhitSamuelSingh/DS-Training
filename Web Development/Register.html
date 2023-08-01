@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login here</title>
+	<link rel="stylesheet" href="Login3.css">
+</head>
+	
+	
+	<body>
+		
+		<script>
+				function verifyDetails() {
+			    let name = document.getElementById("idname").value;
+			    let password = document.getElementById("idpass").value;
+			    let email = document.getElementById("idemail").value;
+			    let birthDate = document.getElementById("idDate").value;
+			
+			    let birthYear = new Date(birthDate).getFullYear();
+			    let currentYear = new Date().getFullYear();
+			    let age = currentYear - birthYear;
+			
+			
+			    if (age <= 18) {
+			        alert("Age must be more than 18  years.");
+			        return false;
+			    }
+			
+			    if (name.length <= 8 || !isValidName(name)) {
+			        alert("Please enter a valid name ,only alphabets and spaces allowed, and length > 8.");
+			        return false;
+			    }
+			
+			    if (password.length <= 8 || !isValidPassword(password)) {
+			        alert("Please enter a valid password , only alphabets and numbers allowed, and length > 8.");
+			        return false;
+			    }
+			
+			    if (!isValidEmail(email)) {
+			        alert("Please enter a valid email address.");
+			        return false;
+			    }
+			
+			    return true;
+				}
+				
+				
+				function isValidName(email) {
+				    const emailPattern = /^[a-zA-Z ]+$/;
+				    return emailPattern.test(email);
+				}
+				
+				function isValidPassword(email) {
+				    const emailPattern = /^[a-zA-Z0-9]+$/;
+				    return emailPattern.test(email);
+				}
+				
+				function isValidEmail(email) {
+				    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+				    return emailPattern.test(email);
+				}
+				
+				function clearAll()
+				{
+				    document.getElementById("idname").innerHTML="";
+				    document.getElementById("idpass").innerHTML="";
+				    document.getElementById("idemail").innerHTML="";
+				    document.getElementById("idDate").innerHTML="";
+				}
+
+			
+		</script>
+		<h1>My Airlines</h1>
+		<hr>
+		<h2>Register Here</h2>
+		
+		<form action="Login3.html">
+	
+		
+		<table style="margin-right: auto; margin-left: auto">
+		
+		
+			<tr>
+				<td> 
+					<label>Enter email</label> 
+				</td>
+				
+				<td> 
+					<input  type=text name="ueamil" id="idemail">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label>Enter birthdate</label>
+				</td>
+				
+				<td>
+				 	<input  type=date     name="udob" id="idDate">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label>Enter useidname</label> 
+				</td>
+				
+				<td>
+					<input  type=text     name="uname" id="idname">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label>Enter password</label>
+				</td>
+				<td>
+					 <input  type=password name="upass" id="idpass">
+				</td>
+			</tr>
+			
+			<tr>
+				<td> Already Registered? Click <a href="Login3.html">Here</a></td>		
+			</tr>
+			
+			<tr>
+				<td> <button type="submit" onclick=" return verifyDetails();" >Register</button> </td>	
+			</tr>
+			
+			<tr>
+				<td>
+						<button onclick="clearForm()" style="background-color: red">Clear</button>	
+				</td>
+			</tr>
+		</form>
+			
+		
+		</table>
+		
+	</body>
+
+</html></html>
